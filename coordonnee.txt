@@ -1,0 +1,21 @@
+nom;latitude;longtitude;adresse;telephone
+Cua Hang Nhung Huou Viet;21.041619;105.781903;1B9 Ngõ 201, Tran Quoc Hoàn, Quan Cau Giay;+84 4 8585 8574
+Private Pharmacy;21.041979;105.782204;3, Tran Quoc Hoàn, Dich Vong Hau, Cau Giay;+84 94 666 90 34
+Công Ty TNHH Duoc Pham Pectin;21.041599;105.785573;243, Tran Quoc Hoàn, Dich Vong Hau, Quan Cau Giay;+84 90 329 15 69
+Nhà thuoc HY VONG;21.041118;105.788770;Dich Vong Hau
+Cau Giay;+84 4 3791 1442
+Kamin Pharma Joint Stock Company;21.036952;105.789371;27, Xuan Thuy Street, Dich Vong Hau Ward, Cau Giay District;+84 125 874 5911
+30 Nguyen Phong Sac Pharmacy;21.044402;105.789843;30, Nguyen Phong Sac Street, Nghia Tan Ward, Cau Giay District;+84 98 624 34 15
+Hong Loan Pharmacy;21.041819;105.791388;27 To Hieu Street, Cau Giay District;+84 4 3836 4798
+Nhà Thuoc So 3;21.043681;105.792010;P101-C1, Phuong Nghia Tan, Quan Cau Giay;+84 4 3791 3984
+Nhà Thuoc Mai Huong;21.043561;105.793319;108b - A12 Nghia Tân
+Cau Giay;+84 4 3756 5747
+Công Ty Trách Nhiem Huu Han Duoc Pham An Phú;21.038975;105.792289;197, Tran Dang Ninh, Phuong Dich Vong, Quan Cau Giay;+84 4 6299 8979
+Hoang Phat Pharmaceutical & Trading JSC;21.037513;105.791709;6, Ngõ 5, Duong Tran Quý Kiên, Quan Cau Giay;+84 4 3769 0103
+Cong Minh Pharmacy;21.036792;105.794349;217 Tran Dang Ninh Street, Cau Giay District;+84 4 3754 5605
+Nhà Thuoc Tâm An;21.038494;105.793190;145 Tran Dang Ninh
+Dich Vong, Cau Giay;+84 4 6283 1975
+Dich Vu Mua Bán Duoc Pham Vu Thi Kim Thoa;21.031050;105.785560;A15, Duong Com Vòng, Phuong Dich Vong Hau, Quan Cau Giay;+84 92 557 83 89
+3a Pharmaceutical Co., Ltd;21.033574;105.786826;Lô A1E, P. Dich Vong Hau, Q. Cau Giay, Hà Noi;+84 4 3633 3126
+Quay Thuoc Tây Nguyen Thi Thanh Thu;21.032247;105.792734;34, Dich Vong, Quan Cau Giay;+84 164 691 9101
+Nhà Thuoc 52B Dich Vong;21.033869;105.793593;52B, Dich Vong, Quan Cau Giay;+84 91 900 15 61
