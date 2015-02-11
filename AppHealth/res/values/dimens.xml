@@ -14,5 +14,5 @@
     <!-- action bar -->
     <dimen name="action_button_min_width">56dp</dimen>
     <dimen name= "Splash_margB">10dp</dimen>
-    <dimen name= "Splash_margT">85dp</dimen>
+    <dimen name= "Splash_margT">50dp</dimen>
 </resources>
