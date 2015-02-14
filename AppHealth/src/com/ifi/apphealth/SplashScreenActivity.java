@@ -29,6 +29,6 @@ public class SplashScreenActivity extends Activity {
 		setContentView(R.layout.activity_splash_screen);
 	    Message localMessage = new Message();
 	    localMessage.what = 0;
-	    this.handler.sendMessageDelayed(localMessage, 3000L);		
+	    this.handler.sendMessageDelayed(localMessage, 5000L);		
 	}
 }
