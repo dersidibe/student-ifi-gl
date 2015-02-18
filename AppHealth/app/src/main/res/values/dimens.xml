@@ -1,0 +1,18 @@
+<resources>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name= "Large_Text">15.0sp</dimen>
+    <dimen name = "Petit_Text">14.0sp</dimen>
+    <dimen name= "VSmall_Text">11.0sp</dimen>
+    <dimen name="xxLargeText">17.0sp</dimen>
+    <dimen name="xLargetext">16.0sp</dimen>
+    <dimen name="largeText">15.0sp</dimen>
+    <dimen name="normalText">14.0sp</dimen>
+    <dimen name="smallText">13.0sp</dimen>
+    <!-- action bar -->
+    <dimen name="action_button_min_width">56dp</dimen>
+    <dimen name= "Splash_margB">10dp</dimen>
+    <dimen name= "Splash_margT">85dp</dimen>
+</resources>
