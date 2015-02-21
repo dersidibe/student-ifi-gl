@@ -9,5 +9,8 @@
     <string name="title_activity_main">AppHealth</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="liste_pharmacies">Liste des Pharmacies les plus proches</string>
+    <string name="liste_clinic">Liste des cliniques les plus proches</string>
+    <string name="liste_hopital">Liste des hôpitaux les plus proches</string>
 
 </resources>
