@@ -1,0 +1,11 @@
+SELECT *, get_distance_metres('21.041979', '105.782204', latStruct, lgStruct) 
+      AS proximite 
+      FROM structure
+      Having proximite < 2000 ORDER BY proximite ASC 
+      LIMIT 10
+
+////
+
+
+
+

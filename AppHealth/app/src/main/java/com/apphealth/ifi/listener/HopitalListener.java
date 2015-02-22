@@ -3,17 +3,18 @@ package com.apphealth.ifi.listener;
 import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
 import com.apphealth.ifi.appheath.R;
 
-/**
- * Created by colsi on 21/02/15.
- */
+
+
 public class HopitalListener implements View.OnClickListener{
 
     ActionBarActivity activity;
     Button bPharmacie,bClinic, bHopital;
     TextView title;
+    ListView list;
 
     public HopitalListener(ActionBarActivity activity){
 
@@ -27,6 +28,7 @@ public class HopitalListener implements View.OnClickListener{
         bHopital = (Button)activity.findViewById(R.id.button2);
         bClinic = (Button)activity.findViewById(R.id.button3);
         title = (TextView)activity.findViewById(R.id.title);
+        list = (ListView)activity.findViewById(R.id.listView);
 
         bPharmacie.setBackgroundColor(activity.getResources().getColor(R.color.button_normal));
         bClinic.setBackgroundColor(activity.getResources().getColor(R.color.button_normal));

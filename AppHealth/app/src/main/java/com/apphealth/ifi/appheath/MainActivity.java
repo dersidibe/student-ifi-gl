@@ -1,21 +1,25 @@
 package com.apphealth.ifi.appheath;
 
+import android.media.Image;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.widget.Button;
 import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.apphealth.ifi.listener.CliniqueListener;
 import com.apphealth.ifi.listener.HopitalListener;
 import com.apphealth.ifi.listener.PharmacieListener;
+import com.apphealth.ifi.listener.PubListener;
 
 public class MainActivity extends ActionBarActivity {
 
 
     Button bPharmacie,bClinic, bHopital;
     TextView title;
+    ImageView pub;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,10 +31,12 @@ public class MainActivity extends ActionBarActivity {
         bHopital = (Button)findViewById(R.id.button2);
         bClinic = (Button)findViewById(R.id.button3);
         title = (TextView)findViewById(R.id.title);
+        pub = (ImageView)findViewById(R.id.pub);
 
         bPharmacie.setOnClickListener(new PharmacieListener(this));
         bClinic.setOnClickListener(new CliniqueListener(this));
         bHopital.setOnClickListener(new HopitalListener(this));
+        pub.setOnClickListener(new PubListener(this));
     }
 
 
