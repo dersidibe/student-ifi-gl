@@ -13,6 +13,7 @@ import com.apphealth.ifi.listener.CliniqueListener;
 import com.apphealth.ifi.listener.HopitalListener;
 import com.apphealth.ifi.listener.PharmacieListener;
 import com.apphealth.ifi.listener.PubListener;
+import com.google.android.gms.maps.GoogleMap;
 
 public class MainActivity extends ActionBarActivity {
 
@@ -20,12 +21,14 @@ public class MainActivity extends ActionBarActivity {
     Button bPharmacie,bClinic, bHopital;
     TextView title;
     ImageView pub;
-
+    private GoogleMap mMap;
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
+        getSupportActionBar().setIcon(R.drawable.icon);
 
         bPharmacie = (Button)findViewById(R.id.button1);
         bHopital = (Button)findViewById(R.id.button2);
