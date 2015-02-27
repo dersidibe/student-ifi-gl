@@ -19,6 +19,8 @@ import com.google.android.gms.maps.GoogleMap;
 import android.location.Criteria;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.widget.Toast;
+
 import java.util.List;
 
 public class PharmacieListener implements View.OnClickListener, LocationListener{
@@ -40,47 +42,54 @@ public class PharmacieListener implements View.OnClickListener, LocationListener
     @Override
     public void onClick(View v) {
 
+        if(Tools.isConnected(activity)) {
 
-        bPharmacie = (Button)activity.findViewById(R.id.button1);
-        bHopital = (Button)activity.findViewById(R.id.button2);
-        bClinic = (Button)activity.findViewById(R.id.button3);
-        title = (TextView)activity.findViewById(R.id.title);
-        list = (ListView)activity.findViewById(R.id.listView);
 
-        bPharmacie.setBackgroundColor(activity.getResources().getColor(R.color.button_selected));
-        bClinic.setBackgroundColor(activity.getResources().getColor(R.color.button_normal));
-        bHopital.setBackgroundColor(activity.getResources().getColor(R.color.button_normal));
-        title.setText(R.string.liste_pharmacies);
+            MainActivity.buttonSelected = "1";
+            bPharmacie = (Button) activity.findViewById(R.id.button1);
+            bHopital = (Button) activity.findViewById(R.id.button2);
+            bClinic = (Button) activity.findViewById(R.id.button3);
+            title = (TextView) activity.findViewById(R.id.title);
+            list = (ListView) activity.findViewById(R.id.listView);
 
-        // Getting LocationManager object
-        locationManager = (LocationManager)activity.getSystemService(Context.LOCATION_SERVICE);
+            bPharmacie.setBackgroundColor(activity.getResources().getColor(R.color.button_selected));
+            bClinic.setBackgroundColor(activity.getResources().getColor(R.color.button_normal));
+            bHopital.setBackgroundColor(activity.getResources().getColor(R.color.button_normal));
+            title.setText(R.string.liste_pharmacies);
 
-        // Creating an empty criteria object
-        Criteria criteria = new Criteria();
+            // Getting LocationManager object
+            locationManager = (LocationManager) activity.getSystemService(Context.LOCATION_SERVICE);
 
-        // Getting the name of the provider that meets the criteria
-        provider = locationManager.getBestProvider(criteria, false);
-        List<String> providers = locationManager.getProviders(true);
-        Location bestLocation = null;
-        for (String provider : providers) {
+            // Creating an empty criteria object
+            Criteria criteria = new Criteria();
 
-            Location l = locationManager.getLastKnownLocation(provider);
-            locationManager.requestLocationUpdates(provider, 20000, 1, this);
-            if (l == null) {
-                continue;
+            // Getting the name of the provider that meets the criteria
+            provider = locationManager.getBestProvider(criteria, false);
+            List<String> providers = locationManager.getProviders(true);
+            Location bestLocation = null;
+            for (String provider : providers) {
+
+                Location l = locationManager.getLastKnownLocation(provider);
+                locationManager.requestLocationUpdates(provider, 20000, 1, this);
+                if (l == null) {
+                    continue;
+                }
+                if (bestLocation == null || l.getAccuracy() < bestLocation.getAccuracy()) {
+                    // Found best last known location: %s", l);
+                    bestLocation = l;
+                }
             }
-            if (bestLocation == null || l.getAccuracy() < bestLocation.getAccuracy()) {
-                // Found best last known location: %s", l);
-                bestLocation = l;
-            }
+            Log.i("location ", "Latitude =" + bestLocation.getLatitude() + " Longitude =" + bestLocation.getLongitude());
+            MainActivity.latitude = Double.toString(bestLocation.getLatitude());
+            MainActivity.longitude = Double.toString(bestLocation.getLongitude());
+            String lien = Tools.URL + "?latitude=" + bestLocation.getLatitude() + "&longitude=" + bestLocation.getLongitude();
+            mTask = new StructureLoader(activity, 1).execute(lien);
+            //Toast.makeText(activity.getBaseContext(), lien, Toast.LENGTH_SHORT).show();
         }
-        Log.i("location ", "Latitude ="+bestLocation.getLatitude()+" Longitude ="+bestLocation.getLongitude());
-        MainActivity.latitude = Double.toString(bestLocation.getLatitude());
-        MainActivity.longitude = Double.toString(bestLocation.getLongitude());
-       String lien = Tools.URL+"?latitude="+bestLocation.getLatitude()+"&longitude="+bestLocation.getLongitude();
-       mTask = new StructureLoader(activity).execute(lien);
-        //Toast.makeText(activity.getBaseContext(), lien, Toast.LENGTH_SHORT).show();
+        else{
 
+            Toast.makeText(activity.getBaseContext(), "Vérifier votre connexion!", Toast.LENGTH_SHORT).show();
+        }
     }
 
 

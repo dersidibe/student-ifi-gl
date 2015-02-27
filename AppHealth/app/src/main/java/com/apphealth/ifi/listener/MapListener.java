@@ -2,10 +2,13 @@ package com.apphealth.ifi.listener;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
-import com.apphealth.ifi.appheath.MapsActivity;
-import com.apphealth.ifi.appheath.PharmacieDetailActivity;
+import com.apphealth.ifi.appheath.PathGoogleMapActivity;
+import com.apphealth.ifi.appheath.StructureDetailActivity;
+import com.apphealth.utils.Tools;
 
 
 public class MapListener implements View.OnClickListener{
@@ -20,11 +23,20 @@ public class MapListener implements View.OnClickListener{
     @Override
     public void onClick(View v) {
 
-        Intent intent = new Intent(activity, MapsActivity.class);
-        intent.putExtra("DepLatitude", PharmacieDetailActivity.DepLatitude);
-        intent.putExtra("DepLongitude", PharmacieDetailActivity.DepLongitude);
-        intent.putExtra("DestLatitude", PharmacieDetailActivity.DestLatitude);
-        intent.putExtra("DestLongitude", PharmacieDetailActivity.DestLongitude);
-        activity.startActivity(intent);
+        if(Tools.isConnected(activity)) {
+
+            Intent intent = new Intent(activity, PathGoogleMapActivity.class);
+            intent.putExtra("DepLatitude", StructureDetailActivity.DepLatitude);
+            intent.putExtra("DepLongitude", StructureDetailActivity.DepLongitude);
+            intent.putExtra("DestLatitude", StructureDetailActivity.DestLatitude);
+            intent.putExtra("DestLongitude", StructureDetailActivity.DestLongitude);
+            Log.i("nom= ", StructureDetailActivity.pharmacie);
+            intent.putExtra("nom", StructureDetailActivity.pharmacie);
+            activity.startActivity(intent);
+        }
+        else{
+
+            Toast.makeText(activity.getBaseContext(), "Vérifier votre connexion!", Toast.LENGTH_SHORT).show();
+        }
     }
 }

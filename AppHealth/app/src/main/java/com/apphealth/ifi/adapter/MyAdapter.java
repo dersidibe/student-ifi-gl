@@ -14,10 +14,11 @@ public class MyAdapter extends BaseAdapter{
 
     private Context context;
     private ArrayList<Structure> mData  = new ArrayList<Structure>();
+    int entity;
 
-
-    public MyAdapter(Context context){
+    public MyAdapter(Context context, int entity){
         this.context = context;
+        this.entity = entity;
     }
 
     @Override
@@ -45,10 +46,10 @@ public class MyAdapter extends BaseAdapter{
         if(vue == null){
 
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            vue = inflater.inflate(R.layout.liste, null);
+            vue = inflater.inflate(R.layout.liste_structure, null);
         }
 
-        StructureListView structureView = new StructureListView(context, structure);
+        StructureListView structureView = new StructureListView(context, structure,entity);
 
         return structureView;
     }
@@ -62,4 +63,5 @@ public class MyAdapter extends BaseAdapter{
 
         this.mData = art;
     }
+
 }

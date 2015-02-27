@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import com.apphealth.ifi.listener.CliniqueListener;
 import com.apphealth.ifi.listener.HopitalListener;
-import com.apphealth.ifi.listener.PharmacieListViewListener;
+import com.apphealth.ifi.listener.StructureListViewListener;
 import com.apphealth.ifi.listener.PharmacieListener;
 import com.apphealth.ifi.listener.PubListener;
 import com.google.android.gms.maps.GoogleMap;
@@ -26,6 +26,8 @@ public class MainActivity extends ActionBarActivity {
     ListView list;
     public static String latitude;
     public  static String longitude;
+    public  static String buttonSelected;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -44,7 +46,7 @@ public class MainActivity extends ActionBarActivity {
         bClinic.setOnClickListener(new CliniqueListener(this));
         bHopital.setOnClickListener(new HopitalListener(this));
         pub.setOnClickListener(new PubListener(this));
-        list.setOnItemClickListener(new PharmacieListViewListener(this));
+        list.setOnItemClickListener(new StructureListViewListener(this));
     }
 
 

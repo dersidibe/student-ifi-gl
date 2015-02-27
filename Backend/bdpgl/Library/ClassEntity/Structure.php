@@ -8,6 +8,8 @@
 		private $latitude;
 		private $longitude;
 		private $telephone;
+		private $rue;
+		private $distance;
 			
 		public function __construct(){
 		
@@ -15,7 +17,9 @@
 			$this->name = "";
 			$this->latitude = "";
 			$this->longitude = "";
-			$this->telephone = "";			
+			$this->telephone = "";	
+			$this->rue = "";	
+			$this->distance = "";			
 		}
 		
 		//--------------Setter---------------//		
@@ -41,7 +45,14 @@
 		public function setTelephone($telephone){
 			$this->telephone = $telephone;
 		}
-		
+
+		public function setRue($rue){
+			$this->rue = $rue;
+		}		
+
+		public function setDistance($distance){
+			$this->distance = $distance;
+		}
 
 		//-------------Getter--------------//
 		public function getId(){
@@ -66,6 +77,14 @@
 		public function getTelephone(){
 			return $this->telephone;	
 		}
+
+		public function getRue(){
+			return $this->rue;	
+		}
+
+		public function getDistance(){
+			return $this->distance;	
+		}				
 		
 	}
 ?>

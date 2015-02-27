@@ -14,7 +14,7 @@
 		public function __construct(){
 			
 			//------------Base de données---------//
-			
+		
 			$this->_db = 'mysql';
 			$this->_db_name = 'bdpgl';
 			$this->_db_login = 'root';
@@ -26,8 +26,16 @@
 			$this->_db_login = '1818932_bdpgl';
 			$this->_db_passwd = 'ephphata87';
 			$this->_db_host = 'fdb13.awardspace.net';
+
+			
+			$this->_db = 'mysql';
+			$this->_db_name = 'zoumacra_bdpgl';
+			$this->_db_login = 'zoumacra_root';
+			$this->_db_passwd = 'ephphata';
+			$this->_db_host = 'localhost';
 				
-			*/
+			*/	
+			
 			//------------Fin Base de données-----//	
 	
 		}

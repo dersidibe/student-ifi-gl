@@ -37,7 +37,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MapsActivity"
+            android:name=".PathGoogleMapActivity"
             android:label="@string/title_activity_maps" >
         </activity>
         <activity
@@ -45,7 +45,7 @@
             android:label="@string/title_activity_main" >
         </activity>
         <activity
-            android:name=".PharmacieDetailActivity"
+            android:name=".StructureDetailActivity"
             android:label="@string/title_activity_main" >
             <intent-filter>
                 <action android:name="android.intent.action.DIAL" />

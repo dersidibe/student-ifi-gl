@@ -5,7 +5,7 @@ import android.net.Uri;
 import android.app.Activity;
 import android.view.View;
 
-import com.apphealth.ifi.appheath.PharmacieDetailActivity;
+import com.apphealth.ifi.appheath.StructureDetailActivity;
 
 
 public class CallListener implements View.OnClickListener{
@@ -21,7 +21,7 @@ public class CallListener implements View.OnClickListener{
     public void onClick(View v) {
 
         Intent callIntent = new Intent(Intent.ACTION_CALL);
-        callIntent.setData(Uri.parse("tel:" +PharmacieDetailActivity.telephone));
+        callIntent.setData(Uri.parse("tel:" + StructureDetailActivity.telephone));
         activity.startActivity(callIntent);
     }
 }

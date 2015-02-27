@@ -8,10 +8,14 @@ import android.location.LocationManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.apphealth.ifi.appheath.MainActivity;
 import com.apphealth.ifi.appheath.R;
 import com.apphealth.ifi.asynctask.StructureLoader;
 import com.apphealth.utils.Tools;
@@ -40,43 +44,53 @@ public class HopitalListener implements View.OnClickListener , LocationListener 
     @Override
     public void onClick(View v) {
 
-        bPharmacie = (Button)activity.findViewById(R.id.button1);
-        bHopital = (Button)activity.findViewById(R.id.button2);
-        bClinic = (Button)activity.findViewById(R.id.button3);
-        title = (TextView)activity.findViewById(R.id.title);
-        list = (ListView)activity.findViewById(R.id.listView);
+        if(Tools.isConnected(activity)) {
 
-        bPharmacie.setBackgroundColor(activity.getResources().getColor(R.color.button_normal));
-        bClinic.setBackgroundColor(activity.getResources().getColor(R.color.button_normal));
-        bHopital.setBackgroundColor(activity.getResources().getColor(R.color.button_selected));
-        title.setText(R.string.liste_hopital);
+            MainActivity.buttonSelected = "3";
+            bPharmacie = (Button) activity.findViewById(R.id.button1);
+            bHopital = (Button) activity.findViewById(R.id.button2);
+            bClinic = (Button) activity.findViewById(R.id.button3);
+            title = (TextView) activity.findViewById(R.id.title);
+            list = (ListView) activity.findViewById(R.id.listView);
 
-        // Getting LocationManager object
-        locationManager = (LocationManager)activity.getSystemService(Context.LOCATION_SERVICE);
+            bPharmacie.setBackgroundColor(activity.getResources().getColor(R.color.button_normal));
+            bClinic.setBackgroundColor(activity.getResources().getColor(R.color.button_normal));
+            bHopital.setBackgroundColor(activity.getResources().getColor(R.color.button_selected));
+            title.setText(R.string.liste_hopital);
 
-        // Creating an empty criteria object
-        Criteria criteria = new Criteria();
+            // Getting LocationManager object
+            locationManager = (LocationManager) activity.getSystemService(Context.LOCATION_SERVICE);
 
-        // Getting the name of the provider that meets the criteria
-        provider = locationManager.getBestProvider(criteria, false);
-        List<String> providers = locationManager.getProviders(true);
-        Location bestLocation = null;
-        for (String provider : providers) {
+            // Creating an empty criteria object
+            Criteria criteria = new Criteria();
 
-            Location l = locationManager.getLastKnownLocation(provider);
-            locationManager.requestLocationUpdates(provider, 20000, 1, this);
-            if (l == null) {
-                continue;
+            // Getting the name of the provider that meets the criteria
+            provider = locationManager.getBestProvider(criteria, false);
+            List<String> providers = locationManager.getProviders(true);
+            Location bestLocation = null;
+            for (String provider : providers) {
+
+                Location l = locationManager.getLastKnownLocation(provider);
+                locationManager.requestLocationUpdates(provider, 20000, 1, this);
+                if (l == null) {
+                    continue;
+                }
+                if (bestLocation == null || l.getAccuracy() < bestLocation.getAccuracy()) {
+                    // Found best last known location: %s", l);
+                    bestLocation = l;
+                }
             }
-            if (bestLocation == null || l.getAccuracy() < bestLocation.getAccuracy()) {
-                // Found best last known location: %s", l);
-                bestLocation = l;
-            }
+            // Toast.makeText(activity.getBaseContext(), "Latitude ="+bestLocation.getLatitude()+" Longitude ="+bestLocation.getLongitude(), Toast.LENGTH_SHORT).show();
+            Log.i("location ", "Latitude =" + bestLocation.getLatitude() + " Longitude =" + bestLocation.getLongitude());
+            MainActivity.latitude = Double.toString(bestLocation.getLatitude());
+            MainActivity.longitude = Double.toString(bestLocation.getLongitude());
+            String lien = Tools.URL + "?latitude=" + bestLocation.getLatitude() + "&longitude=" + bestLocation.getLongitude();
+            mTask = new StructureLoader(activity, 3).execute(lien);
         }
-        // Toast.makeText(activity.getBaseContext(), "Latitude ="+bestLocation.getLatitude()+" Longitude ="+bestLocation.getLongitude(), Toast.LENGTH_SHORT).show();
+        else {
 
-        String lien = Tools.URL+"?latitude="+bestLocation.getLatitude()+"&longitude="+bestLocation.getLongitude();
-        mTask = new StructureLoader(activity).execute(lien);
+            Toast.makeText(activity.getBaseContext(),"Vérifier votre connexion!",Toast.LENGTH_SHORT).show();
+        }
 
     }
 

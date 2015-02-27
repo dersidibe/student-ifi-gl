@@ -28,8 +28,8 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/logoPharma"
-            android:src="@drawable/pharm1"
+            android:id="@+id/logoStructure"
+            android:src="@drawable/pharma_default_img"
             android:layout_alignParentLeft="true"
             android:layout_marginLeft="5dp"
             android:scaleType="centerCrop"
@@ -40,7 +40,7 @@
             android:text="Nom:"
             android:textSize="25sp"
             android:textStyle="bold"
-            android:layout_toRightOf="@id/logoPharma"
+            android:layout_toRightOf="@id/logoStructure"
             android:layout_marginLeft="10dp"
             android:id="@+id/nomLabel"/>
         <TextView
@@ -49,11 +49,11 @@
             android:text=""
             android:textSize="18sp"
             android:textStyle="normal"
-            android:layout_toRightOf="@id/logoPharma"
+            android:layout_toRightOf="@id/logoStructure"
             android:layout_below="@id/nomLabel"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="5dp"
-            android:id="@+id/nomPharma"/>
+            android:id="@+id/nomStructure"/>
     </RelativeLayout>
     <TextView
         android:layout_width="wrap_content"

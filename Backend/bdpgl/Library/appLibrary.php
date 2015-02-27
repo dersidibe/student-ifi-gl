@@ -2,6 +2,7 @@
 //***********@uthor SIDIBE Guéréguin Der Sylvestre*****************//
 
 require_once('ClassConnector/class.DBConnector.php');
+require_once('ClassEntity/Structure.php');
 
 class Fonction extends DataBase {
 
@@ -18,7 +19,7 @@ class Fonction extends DataBase {
 		date_default_timezone_set('Africa/Ouagadougou');
 	}
 	
-	public function getPharmacie($lat, $lng){
+	public function getPharmacieJson($lat, $lng){
 			
 		
 		$this->_reponse = $this->_connexion->prepare("call get_structure(:lat, :lng)");
@@ -36,24 +37,35 @@ class Fonction extends DataBase {
 		return json_encode($tab);
 			
 	}		
-
-
-	public function afficheInfosTechniqueTicket($id_ticket) {
-
-		$this->_reponse = $this->_connexion->prepare("select t.numero_concerne,p.numero_pt,p.nom_pt,s.numero_distribution,r.transport1 from ticket t,pt p,sr s,re r
-				where t.id_pt = p.id_pt and p.numro_sr = s.numro_sr and r.transport1 = s.transport1 and t.id_ticket = :id");
-		$this->_reponse->bindValue(':id', $id_ticket, PDO::PARAM_STR);
+	public function getPharmacie($lat, $lng){
+			
+		
+		$this->_reponse = $this->_connexion->prepare("call get_structure(:lat, :lng)");
+		$this->_reponse->bindParam(':lat', $lat, PDO::PARAM_STR);
+		$this->_reponse->bindParam(':lng', $lng, PDO::PARAM_STR);
 		$_test = $this->_reponse->execute();
-		$tab = array();
+		$structure[] = null;
+
 		if ($_test) {
+
 			$this->_reponse->setFetchMode(PDO::FETCH_OBJ);
-			while ($_select = $this->_reponse->fetch()) {
-				$tab ['techniques'][] = $_select;
+			$i = 0;
+			while ($data = $this->_reponse->fetch()) {
+							
+					$structure[$i] = new Structure();
+					$structure[$i]->setId($data->idStruct);
+					$structure[$i]->setName($data->nomStruct);
+					$structure[$i]->setLatitude($data->latStruct);
+					$structure[$i]->setLongitude($data->lgStruct);
+					$structure[$i]->setTelephone($data->telStruct);
+					$structure[$i]->setRue($data->rueStruct);
+					$structure[$i]->setDistance($data->distance);
+					$i = $i+1;
 			}
-		} else
-			$tab ['techniques'][] = 0;
-		return json_encode($tab);
-	}
+		}
+
+		return $structure;
+	}		
 			
 }
-?>
+

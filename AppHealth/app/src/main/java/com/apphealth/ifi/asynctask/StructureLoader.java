@@ -2,11 +2,9 @@ package com.apphealth.ifi.asynctask;
 
 
 import java.util.ArrayList;
-import android.app.Activity;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.support.v7.app.ActionBarActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.ProgressBar;
@@ -29,12 +27,11 @@ public class StructureLoader extends AsyncTask<String, Void, Boolean> {
     String idRoom;
     private volatile boolean running = true;
 
-    public StructureLoader( ActionBarActivity activity){
+    public StructureLoader( ActionBarActivity activity,int entity){
 
         this.activity = activity;
         this.ctx = activity.getApplication();
-        this.monAdapater = new MyAdapter(ctx);
-        this.idRoom = idRoom;
+        this.monAdapater = new MyAdapter(ctx,entity);
         maprogress = (ProgressBar)activity.findViewById(R.id.progressBar);
         maListView = (ListView)activity.findViewById(R.id.listView);
     }
