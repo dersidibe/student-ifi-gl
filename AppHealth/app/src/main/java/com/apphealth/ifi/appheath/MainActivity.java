@@ -1,16 +1,17 @@
 package com.apphealth.ifi.appheath;
 
-import android.media.Image;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.widget.Button;
 import android.view.MenuItem;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.apphealth.ifi.listener.CliniqueListener;
 import com.apphealth.ifi.listener.HopitalListener;
+import com.apphealth.ifi.listener.PharmacieListViewListener;
 import com.apphealth.ifi.listener.PharmacieListener;
 import com.apphealth.ifi.listener.PubListener;
 import com.google.android.gms.maps.GoogleMap;
@@ -22,7 +23,9 @@ public class MainActivity extends ActionBarActivity {
     TextView title;
     ImageView pub;
     private GoogleMap mMap;
-    
+    ListView list;
+    public static String latitude;
+    public  static String longitude;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -35,11 +38,13 @@ public class MainActivity extends ActionBarActivity {
         bClinic = (Button)findViewById(R.id.button3);
         title = (TextView)findViewById(R.id.title);
         pub = (ImageView)findViewById(R.id.pub);
+        list = (ListView)findViewById(R.id.listView);
 
         bPharmacie.setOnClickListener(new PharmacieListener(this));
         bClinic.setOnClickListener(new CliniqueListener(this));
         bHopital.setOnClickListener(new HopitalListener(this));
         pub.setOnClickListener(new PubListener(this));
+        list.setOnItemClickListener(new PharmacieListViewListener(this));
     }
 
 

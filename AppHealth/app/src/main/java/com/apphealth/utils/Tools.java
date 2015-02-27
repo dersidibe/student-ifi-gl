@@ -8,6 +8,7 @@ import android.net.NetworkInfo.State;
 
 public class Tools {
 
+    public static String URL = "http://192.168.0.105/project/bdpgl/view/infoStructure.php";
     public static boolean isConnected(Context ctx){
 
         ConnectivityManager connectivityManager = (ConnectivityManager) ctx.getSystemService(Context.CONNECTIVITY_SERVICE);
