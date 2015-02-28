@@ -8,7 +8,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Welcome!"
-        android:textSize="30sp"
+        android:textSize="24sp"
         android:textStyle="bold"
         android:id="@+id/welcome"
         android:layout_marginTop="10dp"
@@ -38,7 +38,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Nom:"
-            android:textSize="25sp"
+            android:textSize="20sp"
             android:textStyle="bold"
             android:layout_toRightOf="@id/logoStructure"
             android:layout_marginLeft="10dp"
@@ -59,7 +59,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Adresse:"
-        android:textSize="25sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         android:layout_below="@id/relative1"
         android:layout_marginLeft="10dp"
@@ -70,7 +70,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text=""
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:textStyle="normal"
         android:layout_below="@id/adresseLabel"
         android:layout_marginLeft="10dp"
@@ -78,12 +78,24 @@
         android:layout_marginTop="10dp"
         android:id="@+id/adresse"/>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="18sp"
+        android:textStyle="normal"
+        android:layout_below="@id/adresse"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="10dp"
+        android:id="@+id/position"/>
     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/adresse"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="20dp">
+        android:layout_below="@+id/position"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp">
 
         <ImageView
             android:layout_width="wrap_content"

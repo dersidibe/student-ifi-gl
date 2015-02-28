@@ -82,7 +82,7 @@ public class PharmacieListener implements View.OnClickListener, LocationListener
             Log.i("location ", "Latitude =" + bestLocation.getLatitude() + " Longitude =" + bestLocation.getLongitude());
             MainActivity.latitude = Double.toString(bestLocation.getLatitude());
             MainActivity.longitude = Double.toString(bestLocation.getLongitude());
-            String lien = Tools.URL + "?latitude=" + bestLocation.getLatitude() + "&longitude=" + bestLocation.getLongitude();
+            String lien = Tools.URL + "?latitude=" + bestLocation.getLatitude() + "&longitude=" + bestLocation.getLongitude()+"&type=1";
             mTask = new StructureLoader(activity, 1).execute(lien);
             //Toast.makeText(activity.getBaseContext(), lien, Toast.LENGTH_SHORT).show();
         }

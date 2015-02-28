@@ -7,11 +7,12 @@
 	
 	((isset($_GET['latitude']) && !empty($_GET['latitude'])) ? $latitude = $_GET['latitude'] : $latitude = '');
 	((isset($_GET['longitude']) && !empty($_GET['longitude'])) ? $longitude = $_GET['longitude'] : $longitude = '');
+	((isset($_GET['type']) && !empty($_GET['type'])) ? $type = $_GET['type'] : $type = '');
 
 	if($latitude != "" && $longitude != ""){
 		$f = new Fonction();	
 		//$_select = $f->getPharmacie('21.041979', '105.782204'); 
-		$_select = $f->getPharmacie($latitude, $longitude); 
+		$_select = $f->getPharmacie($latitude, $longitude,1); 
 					 		  
 		foreach($_select as $_key){
 					  

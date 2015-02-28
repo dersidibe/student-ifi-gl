@@ -19,12 +19,13 @@ class Fonction extends DataBase {
 		date_default_timezone_set('Africa/Ouagadougou');
 	}
 	
-	public function getPharmacieJson($lat, $lng){
+	public function getPharmacieJson($lat, $lng,$type){
 			
 		
-		$this->_reponse = $this->_connexion->prepare("call get_structure(:lat, :lng)");
+		$this->_reponse = $this->_connexion->prepare("call get_structure(:lat, :lng,:type)");
 		$this->_reponse->bindParam(':lat', $lat, PDO::PARAM_STR);
 		$this->_reponse->bindParam(':lng', $lng, PDO::PARAM_STR);
+		$this->_reponse->bindParam(':type', $type, PDO::PARAM_INT);
 		$_test = $this->_reponse->execute();
 		$tab = array();
 		if ($_test) {
@@ -37,12 +38,13 @@ class Fonction extends DataBase {
 		return json_encode($tab);
 			
 	}		
-	public function getPharmacie($lat, $lng){
+	public function getPharmacie($lat, $lng, $type){
 			
 		
-		$this->_reponse = $this->_connexion->prepare("call get_structure(:lat, :lng)");
+		$this->_reponse = $this->_connexion->prepare("call get_structure(:lat, :lng, :type)");
 		$this->_reponse->bindParam(':lat', $lat, PDO::PARAM_STR);
 		$this->_reponse->bindParam(':lng', $lng, PDO::PARAM_STR);
+		$this->_reponse->bindParam(':type', $type, PDO::PARAM_INT);
 		$_test = $this->_reponse->execute();
 		$structure[] = null;
 

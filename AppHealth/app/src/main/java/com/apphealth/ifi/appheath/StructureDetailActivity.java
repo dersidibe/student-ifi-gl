@@ -11,7 +11,7 @@ import com.apphealth.ifi.listener.MapListener;
 public class StructureDetailActivity extends Activity {
 
     ImageView call, map,imageStructure;
-    TextView nom, adresse;
+    TextView nom, adresse, position;
     public static String telephone;
     public  static String DepLatitude, DepLongitude, DestLatitude,DestLongitude, pharmacie;
     int btSelected;
@@ -26,6 +26,7 @@ public class StructureDetailActivity extends Activity {
         map  = (ImageView)findViewById(R.id.map);
         nom  = (TextView)findViewById(R.id.nomStructure);
         adresse = (TextView)findViewById(R.id.adresse);
+        position = (TextView)findViewById(R.id.position);
         imageStructure = (ImageView)findViewById(R.id.logoStructure);
         call.setOnClickListener(new CallListener(this));
         map.setOnClickListener(new MapListener(this));
@@ -46,6 +47,16 @@ public class StructureDetailActivity extends Activity {
         DestLatitude = intent.getStringExtra("DestLatitude");
         DestLongitude = intent.getStringExtra("DestLongitude");
         btSelected = Integer.parseInt(intent.getStringExtra("buttonSelected"));
+        if(btSelected == 1){
+            position.setText("La pharmacie est à "+intent.getStringExtra("distance")+" mètres de votre position");
+        }
+        if(btSelected == 2){
+            position.setText("La clinique est à "+intent.getStringExtra("distance")+" mètres de votre position");
+        }
+        if(btSelected == 3){
+            position.setText("L'hopital est à "+intent.getStringExtra("distance")+" mètres de votre position");
+        }
+
         setImage();
     }
 

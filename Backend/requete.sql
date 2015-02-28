@@ -4,6 +4,8 @@ SELECT *, get_distance_metres('21.041979', '105.782204', latStruct, lgStruct)
       Having proximite < 2000 ORDER BY proximite ASC 
       LIMIT 10
 
+call get_structure('21.041979', '105.782204',3);
+
 *********************************************
 
 	
@@ -33,8 +35,23 @@ END|
 
 
 DROP PROCEDURE IF EXISTS get_structure|
-CREATE PROCEDURE get_structure (lat1 DOUBLE, lng1 DOUBLE) 
+CREATE PROCEDURE get_structure (lat1 DOUBLE, lng1 DOUBLE, typeStruct INT) 
 BEGIN 
-	SELECT *, get_distance_metres(lat1, lng1, latStruct, lgStruct) AS distance FROM structure
-	 Having distance < 2000 ORDER BY distance ASC LIMIT 10;
+	DECLARE type INT;
+	Set type = typeStruct;
+	CASE type
+
+		WHEN 1 THEN SELECT *, get_distance_metres(lat1, lng1, latStruct, lgStruct) AS distance FROM pharmacie
+	 		Having distance < 2000 ORDER BY distance ASC LIMIT 10;
+
+		WHEN 2 THEN SELECT *, get_distance_metres(lat1, lng1, latStruct, lgStruct) AS distance FROM clinique
+	 		Having distance < 2000 ORDER BY distance ASC LIMIT 10;
+
+		WHEN 3 THEN SELECT *, get_distance_metres(lat1, lng1, latStruct, lgStruct) AS distance FROM hopital
+	 		Having distance < 2000 ORDER BY distance ASC LIMIT 10;
+	END CASE;
+
 END|
+
+
+

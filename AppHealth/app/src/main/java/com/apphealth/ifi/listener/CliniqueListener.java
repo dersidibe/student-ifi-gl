@@ -84,7 +84,7 @@ public class CliniqueListener implements View.OnClickListener, LocationListener 
                 Log.i("location ", "Latitude =" + bestLocation.getLatitude() + " Longitude =" + bestLocation.getLongitude());
                 MainActivity.latitude = Double.toString(bestLocation.getLatitude());
                 MainActivity.longitude = Double.toString(bestLocation.getLongitude());
-                String lien = Tools.URL + "?latitude=" + bestLocation.getLatitude() + "&longitude=" + bestLocation.getLongitude();
+                String lien = Tools.URL + "?latitude=" + bestLocation.getLatitude() + "&longitude=" + bestLocation.getLongitude()+"&type=2";
                 mTask = new StructureLoader(activity, 2).execute(lien);
             }
             else{

@@ -84,7 +84,7 @@ public class HopitalListener implements View.OnClickListener , LocationListener 
             Log.i("location ", "Latitude =" + bestLocation.getLatitude() + " Longitude =" + bestLocation.getLongitude());
             MainActivity.latitude = Double.toString(bestLocation.getLatitude());
             MainActivity.longitude = Double.toString(bestLocation.getLongitude());
-            String lien = Tools.URL + "?latitude=" + bestLocation.getLatitude() + "&longitude=" + bestLocation.getLongitude();
+            String lien = Tools.URL + "?latitude=" + bestLocation.getLatitude() + "&longitude=" + bestLocation.getLongitude()+"&type=3";
             mTask = new StructureLoader(activity, 3).execute(lien);
         }
         else {
