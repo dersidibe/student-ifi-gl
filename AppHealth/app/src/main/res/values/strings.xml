@@ -12,5 +12,6 @@
     <string name="liste_pharmacies">Liste des Pharmacies les plus proches</string>
     <string name="liste_clinic">Liste des cliniques les plus proches</string>
     <string name="liste_hopital">Liste des hôpitaux les plus proches</string>
+    <string name="google_maps_key">AIzaSyBg7jOb_gB2ImecK7wrupktd6PDdPA_c_4</string>
 
 </resources>
